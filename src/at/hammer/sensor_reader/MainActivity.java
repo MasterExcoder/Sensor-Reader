@@ -17,9 +17,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 	Sensor accelerometer;
 	
 	//get view variables from XML
-	TextView textview_accelerometer_xAxis = (TextView) findViewById(R.id.label_accelerometer_xAxis);
-	TextView textview_accelerometer_yAxis = (TextView) findViewById(R.id.label_accelerometer_yAxis);
-	TextView textview_accelerometer_zAxis = (TextView) findViewById(R.id.label_accelerometer_zAxis);
+	TextView textview_accelerometer_xAxis;
+	TextView textview_accelerometer_yAxis;
+	TextView textview_accelerometer_zAxis;
 	
 	//define accelerometer variables
 	double xAxis, yAxis, zAxis;
@@ -29,6 +29,11 @@ public class MainActivity extends Activity implements SensorEventListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		textview_accelerometer_xAxis = (TextView) findViewById(R.id.textview_accelerometer_xAxis);
+		textview_accelerometer_yAxis = (TextView) findViewById(R.id.textview_accelerometer_yAxis);
+		textview_accelerometer_zAxis = (TextView) findViewById(R.id.textview_accelerometer_zAxis);
+		
 		sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);

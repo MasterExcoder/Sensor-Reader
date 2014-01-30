@@ -1,5 +1,7 @@
 package at.hammer.sensor_reader;
 
+import java.text.DecimalFormat;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -56,13 +58,18 @@ public class MainActivity extends Activity implements SensorEventListener {
 	public void onSensorChanged(SensorEvent event) {
 		if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
         		xAxis = event.values[0];
-        		textview_accelerometer_xAxis.setText("X-Axis: " + String.valueOf(xAxis));
+        		textview_accelerometer_xAxis.setText("X-Axis: " + getRoundedDoubleString(xAxis));
                 yAxis = event.values[1];
-                textview_accelerometer_yAxis.setText("Y-Axis: " + String.valueOf(yAxis));
+                textview_accelerometer_yAxis.setText("Y-Axis: " + getRoundedDoubleString(yAxis));
                 zAxis = event.values[2];
-                textview_accelerometer_zAxis.setText("Z-Axis: " + String.valueOf(zAxis));
+                textview_accelerometer_zAxis.setText("Z-Axis: " + getRoundedDoubleString(zAxis));
             }
 		
+	}
+	
+	public String getRoundedDoubleString(double d) {
+		DecimalFormat dFormat = new DecimalFormat("0.00");
+		return dFormat.format(d);
 	}
 
 }

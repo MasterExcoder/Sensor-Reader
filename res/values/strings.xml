@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="label_accelerometer_title">Acceleometer</string>
     <string name="label_light_title">Light Sensor</string>
+    <string name="label_gyroscope_title">Gyroscope</string>
 
 </resources>
